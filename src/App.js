@@ -49,7 +49,7 @@ function App() {
                     </thead>
                     <tbody>
                     <tr>
-                        <td className="fields">code</td>
+                        <td className="fields">Code</td>
                         <td>{datas.bpi.EUR.code}</td>
                         <td>{datas.bpi.GBP.code}</td>
                         <td>{datas.bpi.USD.code}</td>
