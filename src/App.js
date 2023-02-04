@@ -24,12 +24,20 @@ function App() {
         updateInfo();
     }, []);
 
-    // const mapData = () => {
-    //     const keys = Object.keys(datas.bpi);
-    //     for (let key in keys){
-    //         return <th>{JSON.stringify(datas.bpi.key)}</th>
-    //     }
-    // }
+    const mapData = () => {
+        const keys = Object.keys(datas.bpi);
+        keys.map(function(key, i){
+            console.log("key", key)
+            return <th>{key}</th>
+            // let eachData = datas.bpi[key];
+            // const fields = Object.keys(eachData);
+            // fields.map(function(field, j){
+            //     console.log("KEY", key);
+            //     console.log("field", field);
+            //     return <th>{key}</th>
+            // })
+        })
+    }
     return (
     <div className="App">
       <header className="App-header">
@@ -42,10 +50,7 @@ function App() {
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>EUR</th>
-                        <th>GBP</th>
-                        <th>USD</th>
+                        {mapData()}
                     </tr>
                     </thead>
                     <tbody>
