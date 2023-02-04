@@ -19,12 +19,18 @@
 
 .innerDiv{
   padding: 5vh;
+  padding-bottom: 0;
   font-size: calc(10px+ 2vmin);
 }
 .fields{
   font-weight: bold;
   float: left;
   margin-right: 1vh;
+}
+.last-update{
+  text-align: left;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 .update{
   text-align: left;
@@ -36,7 +42,7 @@
   min-height: 4vh;
   min-width: 8vh;
   color: white;
-  margin-left: 2vh;
+  margin-left: 5vh;
 }
 .updateButton:hover{
   box-shadow: 1px 2px #888888;

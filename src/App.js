@@ -80,13 +80,14 @@ function App() {
                     </tr>
                     </tbody>
                 </Table>
+                    <div className="last-update"><span className="fields"><b>Last Updated: </b></span>{datas.time.updated}</div>
                 </div>
              ):(
                 <div>
                     <p>no datas</p>
                 </div>
         )}
-        <div className="innerDiv update"><span><b>Last Updated: </b></span>{datas.time.updated}
+        <div className="update">
             <button className="updateButton" onClick={() => updateInfo()}> update </button>
         </div>
     </div>
