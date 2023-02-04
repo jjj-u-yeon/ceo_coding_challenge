@@ -24,6 +24,12 @@ function App() {
         updateInfo();
     }, []);
 
+    // const mapData = () => {
+    //     const keys = Object.keys(datas.bpi);
+    //     for (let key in keys){
+    //         return <th>{JSON.stringify(datas.bpi.key)}</th>
+    //     }
+    // }
     return (
     <div className="App">
       <header className="App-header">
@@ -36,10 +42,44 @@ function App() {
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-
-                        <th>HERE</th>
+                        <th>#</th>
+                        <th>EUR</th>
+                        <th>GBP</th>
+                        <th>USD</th>
                     </tr>
                     </thead>
+                    <tbody>
+                    <tr>
+                        <td>code</td>
+                        <td>{datas.bpi.EUR.code}</td>
+                        <td>{datas.bpi.GBP.code}</td>
+                        <td>{datas.bpi.USD.code}</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol</td>
+                        <td>{datas.bpi.EUR.symbol}</td>
+                        <td>{datas.bpi.GBP.symbol}</td>
+                        <td>{datas.bpi.USD.symbol}</td>
+                    </tr>
+                    <tr>
+                        <td>Rate</td>
+                        <td>{datas.bpi.EUR.rate}</td>
+                        <td>{datas.bpi.GBP.rate}</td>
+                        <td>{datas.bpi.USD.rate}</td>
+                    </tr>
+                    <tr>
+                        <td>Rate Float</td>
+                        <td>{datas.bpi.EUR.rate_float}</td>
+                        <td>{datas.bpi.GBP.rate_float}</td>
+                        <td>{datas.bpi.USD.rate_float}</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>{datas.bpi.EUR.description}</td>
+                        <td>{datas.bpi.GBP.description}</td>
+                        <td>{datas.bpi.USD.description}</td>
+                    </tr>
+                    </tbody>
                 </Table>
                 </div>
              ):(
