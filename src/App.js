@@ -1,32 +1,55 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import Table from 'react-bootstrap/Table'
 
 const apiURL = "https://api.coindesk.com/v1/bpi/currentprice.json"
 
 function App() {
-
-    let data;
     const updateInfo = async () => {
       const response = await fetch(`${apiURL}`);
-      data = await response.json();
-      console.log(data);
-      console.log(data.time)
+      const data = await response.json();
+      setDatas(data);
+      console.log(datas);
     };
+    const initializeInfo = async () => {
+        const response = await fetch(`${apiURL}`);
+        const data = await response.json();
+        return data;
+    };
+
+    const [datas, setDatas] = useState(() => initializeInfo());
+
     useEffect(() => {
         updateInfo();
     }, []);
 
-  return (
+    return (
     <div className="App">
       <header className="App-header">
-        <p>Hello World</p>
-          <button onClick={() => updateInfo()}> update </button>
-          <p>{data}</p>
+        <p>BITCOIN</p>
       </header>
+        {JSON.stringify(datas) !== '{}'
+            ?(
+                <div>
+                    <div><span>LAST UPDATED: </span>{datas.time.updated}</div>
+                <Table striped bordered hover>
+                    <thead>
+                    <tr>
+
+                        <th>HERE</th>
+                    </tr>
+                    </thead>
+                </Table>
+                </div>
+             ):(
+                <div>
+                    <p>no datas</p>
+                </div>
+        )}
+            <button className="updateButton" onClick={() => updateInfo()}> update </button>
     </div>
-  );
+    );
 }
 
 export default App;
