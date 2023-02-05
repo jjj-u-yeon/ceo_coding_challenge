@@ -24,20 +24,12 @@ function App() {
         updateInfo();
     }, []);
 
-    const mapData = () => {
-        const keys = Object.keys(datas.bpi);
-        keys.map(function(key, i){
-            console.log("key", key)
-            return <th>{key}</th>
-            // let eachData = datas.bpi[key];
-            // const fields = Object.keys(eachData);
-            // fields.map(function(field, j){
-            //     console.log("KEY", key);
-            //     console.log("field", field);
-            //     return <th>{key}</th>
-            // })
-        })
-    }
+    // const mapData = () => {
+    //     const keys = Object.keys(datas.bpi);
+    //     for (let key in keys){
+    //         return <th>{JSON.stringify(datas.bpi.key)}</th>
+    //     }
+    // }
     return (
     <div className="App">
       <header className="App-header">
@@ -45,54 +37,59 @@ function App() {
       </header>
         {JSON.stringify(datas) !== '{}'
             ?(
-                <div>
-                    <div><span>LAST UPDATED: </span>{datas.time.updated}</div>
-                <Table striped bordered hover>
+                <div className="innerDiv">
+                    <Table>
                     <thead>
-                    <tr>
-                        {mapData()}
-                    </tr>
+                        <tr>
+                            <th></th>
+                            <th>EUR</th>
+                            <th>GBP</th>
+                            <th>USD</th>
+                        </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>code</td>
+                        <td className="fields">Code</td>
                         <td>{datas.bpi.EUR.code}</td>
                         <td>{datas.bpi.GBP.code}</td>
                         <td>{datas.bpi.USD.code}</td>
                     </tr>
                     <tr>
-                        <td>Symbol</td>
+                        <td className="fields">Symbol</td>
                         <td>{datas.bpi.EUR.symbol}</td>
                         <td>{datas.bpi.GBP.symbol}</td>
                         <td>{datas.bpi.USD.symbol}</td>
                     </tr>
                     <tr>
-                        <td>Rate</td>
+                        <td className="fields">Rate</td>
                         <td>{datas.bpi.EUR.rate}</td>
                         <td>{datas.bpi.GBP.rate}</td>
                         <td>{datas.bpi.USD.rate}</td>
                     </tr>
                     <tr>
-                        <td>Rate Float</td>
+                        <td className="fields">Rate (Float)</td>
                         <td>{datas.bpi.EUR.rate_float}</td>
                         <td>{datas.bpi.GBP.rate_float}</td>
                         <td>{datas.bpi.USD.rate_float}</td>
                     </tr>
                     <tr>
-                        <td>Description</td>
+                        <td className="fields">Description</td>
                         <td>{datas.bpi.EUR.description}</td>
                         <td>{datas.bpi.GBP.description}</td>
                         <td>{datas.bpi.USD.description}</td>
                     </tr>
                     </tbody>
                 </Table>
+                    <div className="last-update"><span className="fields"><b>Last Updated: </b></span>{datas.time.updated}</div>
                 </div>
              ):(
                 <div>
                     <p>no datas</p>
                 </div>
         )}
+        <div className="update">
             <button className="updateButton" onClick={() => updateInfo()}> update </button>
+        </div>
     </div>
     );
 }
